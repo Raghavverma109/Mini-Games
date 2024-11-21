@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <title>Game</title>
+</head>
+
+<body>
+
+  <script>
+    function dice() {
+      const a = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("B1").innerText = a;
+    }
+
+    function OTP() {
+      let ans = Math.floor(Math.random() * (99999 - 10000)) + 10000;
+      document.getElementById("B2").innerHTML = ans;
+    }
+
+    function rock_paper_scissor(userchoice) {
+      var choice = ["Rock", "Paper", "Scissors"];
+
+      // computer turn .
+      var computerChoice = choice[Math.floor(Math.random() * 3)];
+      var result = determine_winner(userchoice, computerChoice);
+      document.getElementById("B3").innerHTML = `You choose : ${userchoice} <br> computer choose : ${computerChoice} <br> ${result}`;
+
+    }
+
+    function determine_winner(userChoice, computerChoice) {
+
+      if (userChoice == computerChoice) {
+        return "its a tie !"
+      }
+      // conditions when computers wins the game 
+      if (
+        (userChoice == "Rock" && computerChoice == "Paper") || (userChoice == "Paper" && computerChoice == "Scissors") || (userChoice == "Scissor" && computerChoice == "Rock")
+      ) {
+        return "computers wins ! &#128532;";
+      }
+
+      else {
+        return "you wins! &#128516; "
+      }
+    }
+
+    function captcha() {
+      const n1 = Math.floor(Math.random() * 9);
+      const n2 = Math.floor(Math.random() * 9);
+      const n3 = Math.floor(Math.random() * 9);
+      var c1 = Math.floor(Math.random() * (122 - 97) + 97);
+      c1 = String.fromCharCode(c1);
+      var c2 = Math.floor(Math.random() * (122 - 97) + 97);
+      c2 = String.fromCharCode(c2);
+      var c3 = Math.floor(Math.random() * (122 - 97) + 97);
+      c3 = String.fromCharCode(c3);
+      document.getElementById("B4").innerText = n1 + c1 + n2 + c2 + c3 + n3;
+    }
+
+
+    function Lunch_picker() {
+      var choice = ["Donuts", "Burger", "Nachos", "Pizza", "Shushi", "Maggi", "Pohha", "Fried Rice"];
+      var lunch = choice[Math.floor(Math.random() * 8)];
+      document.getElementById("B5").innerHTML = lunch;
+    }
+
+
+    function Guess_the_Word() {
+      const wordList = [
+        {
+          word: "python",
+          hint: "programming language"
+        },
+        {
+          word: "aim",
+          hint: "a purpose or intention"
+        },
+        {
+          word: "venus",
+          hint: "planet of our solar system"
+        },
+        {
+          word: "gold",
+          hint: "a yellow precious metal"
+        },
+        {
+          word: "ebay",
+          hint: "online shopping site"
+        },
+        {
+          word: "golang",
+          hint: "programming language"
+        },
+        {
+          word: "coding",
+          hint: "related to programming"
+        },
+        {
+          word: "matrix",
+          hint: "science fiction movie"
+        },
+        {
+          word: "bugs",
+          hint: "related to programming"
+        },
+        {
+          word: "avatar",
+          hint: "epic science fiction film"
+        },
+        {
+          word: "gif",
+          hint: "a file format for image"
+        },
+        {
+          word: "mental",
+          hint: "related to the mind"
+        },
+        {
+          word: "map",
+          hint: "diagram represent of an area"
+        },
+        {
+          word: "island",
+          hint: "land surrounded by water"
+        },
+        {
+          word: "hockey",
+          hint: "a famous outdoor game"
+        },
+        {
+          word: "chess",
+          hint: "related to an indoor game"
+        },
+        {
+          word: "viber",
+          hint: "a social media app"
+        },
+        {
+          word: "github",
+          hint: "code hosting platform"
+        },
+        {
+          word: "png",
+          hint: "a image file format"
+        },
+        {
+          word: "silver",
+          hint: "precious greyish-white metal"
+        },
+        {
+          word: "mobile",
+          hint: "an electronic device"
+        },
+        {
+          word: "gpu",
+          hint: "computer component"
+        },
+        {
+          word: "java",
+          hint: "programming language"
+        },
+        {
+          word: "google",
+          hint: "famous search engine"
+        },
+        {
+          word: "venice",
+          hint: "famous city of waters"
+        },
+        {
+          word: "excel",
+          hint: "microsoft product for windows"
+        },
+        {
+          word: "mysql",
+          hint: "a relational database system"
+        },
+        {
+          word: "nepal",
+          hint: "developing country name"
+        },
+        {
+          word: "flute",
+          hint: "a musical instrument"
+        },
+        {
+          word: "crypto",
+          hint: "related to cryptocurrency"
+        },
+        {
+          word: "tesla",
+          hint: "unit of magnetic flux density"
+        },
+        {
+          word: "mars",
+          hint: "planet of our solar system"
+        },
+        {
+          word: "proxy",
+          hint: "related to server application"
+        },
+        {
+          word: "email",
+          hint: "related to exchanging message"
+        },
+        {
+          word: "html",
+          hint: "markup language for the web"
+        },
+        {
+          word: "air",
+          hint: "related to a gas"
+        },
+        {
+          word: "idea",
+          hint: "a thought or suggestion"
+        },
+        {
+          word: "server",
+          hint: "related to computer or system"
+        },
+        {
+          word: "svg",
+          hint: "a vector image format"
+        },
+        {
+          word: "jpeg",
+          hint: "a image file format"
+        },
+        {
+          word: "search",
+          hint: "act to find something"
+        },
+        {
+          word: "key",
+          hint: "small piece of metal"
+        },
+        {
+          word: "egypt",
+          hint: "a country name"
+        },
+        {
+          word: "joker",
+          hint: "psychological thriller film"
+        },
+        {
+          word: "dubai",
+          hint: "developed country name"
+        },
+        {
+          word: "photo",
+          hint: "representation of person or scene"
+        },
+        {
+          word: "nile",
+          hint: "largest river in the world"
+        },
+        {
+          word: "rain",
+          hint: "related to a water"
+        },
+      ]
+
+
+    }
+  </script>
+
+  <main>
+    <!-- into page -->
+    <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
+      <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 fw-normal">Welcome to the world of Game</h1>
+        <p class="lead fw-normal">These games are designed for children aged 5-12. Parental guidance is advised, as some
+          games may involve mild challenges or interactions.</p>
+        <a class="btn btn-outline-secondary" href="#gg1">Expore Game</a>
+      </div>
+      <div class="product-device shadow-sm d-none d-md-block"></div>
+      <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+    </div>
+
+    <div id="gg1" class=" d-flex justify-content-center d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+
+      <!-- dice container start -->
+
+      <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">.......Dice.......</h2>
+        </div>
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 20vh ;"
+            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/08397f37-85aa-4dd4-b304-84834a375a8a/d1o03g8-011b5bf9-51f7-43e8-8a7b-8da86769c224.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA4Mzk3ZjM3LTg1YWEtNGRkNC1iMzA0LTg0ODM0YTM3NWE4YVwvZDFvMDNnOC0wMTFiNWJmOS01MWY3LTQzZTgtOGE3Yi04ZGE4Njc2OWMyMjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.tEE2wyy0d0ebn1PbxLe38yZbg2aIG7Ao1qH3Kvx7Zss"
+            alt="">
+          <p class="mt-4" style="background-color: #696e74;" id="B1">And an even wittier subheading.</p>
+        </div>
+
+        <a onclick="dice()" class=" btn btn-outline-light my-2 ">Roll the dice</a>
+      </div>
+
+      <!-- dice container end -->
+
+      <!-- OTP Generator start -->
+
+      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">OTP Generator</h2>
+
+        </div>
+
+        <div class="bg-dark shadow-sm mx-auto " style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 22vh; width: auto;" class="mt-4 rounded"
+            src="https://cdn.dribbble.com/users/3821672/screenshots/7172846/media/bdcf195a8ceaf94cd2e55ee274095c91.gif"
+            alt="">
+          <p class=" text-white mt-5" style="background-color: #696e74;" id="B2"></p>
+        </div>
+
+        <a onclick="OTP()" class="btn btn-outline-dark my-2 ">Generate OTP</a>
+      </div>
+      <!-- OTP Generator end -->
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+
+      <!-- rock paper scissor  start -->
+
+      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Rock Paper Scissors</h2>
+        </div>
+        <div class="bg-dark shadow-sm mx-auto " style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 30vh; width: auto;" class="mt-4 rounded"
+            src="https://i.pinimg.com/originals/02/dc/4e/02dc4e134c94e3f243f0eaefd00dfb53.gif" alt=""> <br><br>
+          <button type="button" class="btn btn-outline-light" onclick="rock_paper_scissor('Rock')">Rock</button>
+          <button type="button" class="btn btn-outline-light" onclick="rock_paper_scissor('Paper')">Paper</button>
+          <button type="button" class="btn btn-outline-light" onclick="rock_paper_scissor('Scissors')">Scissors</button>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+          <p id="B3"></p>
+
+        </div>
+      </div>
+      <!-- rock paper scissor  end -->
+
+      <!-- captcha  start-->
+      <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5"> Captcha Generator </h2>
+
+        </div>
+        <div class="bg-light shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 30vh ;" class="mt-3 rounded"
+            src="https://media1.tenor.com/m/BZhQ6b3ZFD0AAAAC/text-captcha.gif" alt="">
+          <p class="mt-4" style="background-color: #696e74;" id="B4"></p>
+
+        </div>
+        <a onclick="captcha()" class=" btn btn-outline-light my-2 ">Generate captcha</a>
+      </div>
+      <!-- captcha  ends-->
+
+    </div>
+
+    <br>
+    <div class="d-flex justify-content-center">
+
+      <!-- Lunch picker start -->
+
+      <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+        <div class="my-3 p-3">
+          <h2 class="display-5">Lunch Picker</h2>
+        </div>
+        <div class="bg-dark shadow-sm mx-auto " style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 25vh; width: auto;" class="mt-4 rounded"
+            src="https://www.butterkicap.com/wp-content/uploads/2017/11/Butterkicap-Wheel-of-Lunch.gif" alt=""> <br><br>
+
+          <p class="mt-3" style="background-color: #696e74; color: white;" id="B5"></p>
+        </div>
+        <button type="button" class="btn btn-outline-dark my-3" onclick="Lunch_picker()">Spin</button>
+
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+
+        </div>
+      </div>
+      <!-- Lunch picker  end -->
+
+      <!-- Guess the Word start-->
+      <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden">
+        <div class="my-3 py-3">
+          <h2 class="display-5">Guess the Word</h2>
+        </div>
+
+        <div class="bg-dark shadow-sm mx-auto " style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"> <img
+            style="height: 25vh; width: auto;" src="https://media.tenor.com/r2l6ol9HRqIAAAAi/question-mark-question.gif"
+            alt="">
+          
+          <br><br>
+          <div class="wrapper">
+            <div class="content">
+              <input type="text" class="typing-input" maxlength="1">
+              <div class="inputs"></div>
+              <div class="details">
+                <p class="hint">Hint: <span></span></p>
+                <p class="guess-left">Remaining guesses: <span></span></p>
+                <p class="wrong-letter">Wrong letters: <span></span></p>
+              </div>
+              <p class="mt-4" style="background-color: #696e74;" id="B4"></p>
+
+              <a onclick="Guess_the_Word()" class=" btn btn-outline-light mb-2 "> Reset </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  Guess the Word ends-->
+
+
+  </main>
+
+</body>
+
+</html>
